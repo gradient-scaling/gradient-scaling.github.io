@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Scaling Radiance Field Gradients allows unbiased near-camera training and floater removal">
+  <meta name="keywords" content="Gradient Scaling, Radiance Field, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Radiance Field Gradient Scaling for Unbiased Near-Camera Training</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QK7N6ZPWB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-8QK7N6ZPWB');
+  </script>
+
+  <link rel="stylesheet" href="https://use.typekit.net/vrr1idw.css">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation" style="display: none;">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://julienphilip.com">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://www.dgriffiths.uk/outcast">
+              OutCast
+            </a>
+            <a class="navbar-item" href="https://repo-sam.inria.fr/fungraph/active-exploration/">
+              Active Exploration
+            </a>
+            <a class="navbar-item" href="https://repo-sam.inria.fr/fungraph/deep-indoor-relight/">
+              Indoor Relighting
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Radiance Field Gradient Scaling for Unbiased Near-Camera Training
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="">Anonymous authors</a><sup>1</sup></span>
+              <!--
+              <span class="author-block">
+                <a href="https://julienphilip.com/">Julien Philip</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://valentin.deschaintre.fr/">Valentin Deschaintre</a><sup>1</sup></span>
+              -->
+            </div>
+
+            <!--
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Adobe Research</span>
+            </div>
+            -->
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="./static/paper/GradientScaling_small.pdf"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2305.02756" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="#Code" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video id="teaser" autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/animation.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          Quadratically scaling gradients near cameras during NeRF training removes floaters.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        Left: Original method (MipNeRF360,DVGO) without scaling.<br />Right: With our gradient scaling.
+      </h2>
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-dvgo_kitchen_highlight">
+            <video poster="" id="dvgo_kitchen_highlight" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/web_dvgo_kitchen_highlight.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-mip_bicycle_highlight">
+            <video poster="" id="mip_bicycle" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/web_mipnerf360_bicycle_highlight.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-dvgo_bonsai_highlight">
+            <video poster="" id="dvgo_bonsai" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/web_dvgo_bonsai_highlight.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-dvgo_kitchen">
+            <video poster="" id="dvgo_kitchen" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/web_dvgo_kitchen.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-mip_bicycle">
+            <video poster="" id="mip_bicycle" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/web_mipnerf360_bicycle.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-dvgo_bonsai">
+            <video poster="" id="dvgo_bonsai" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/web_dvgo_bonsai.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-mip_stump">
+            <video poster="" id="mip_stump" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/web_mipnerf360_stump.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              NeRF acquisition typically requires careful choice of near planes for the different cameras or suffers
+              from background
+              collapse, creating floating artifacts on the edges of the captured scene. The key insight of this work is
+              that
+              background collapse is caused by a higher density of samples in regions near cameras. As a result of this
+              sampling bias,
+              near-camera volumes receive significantly more gradients, leading to incorrect density buildup. We propose
+              a gradient
+              scaling approach to counter-balance this bias, removing the need for near planes, while preventing
+              background collapse.
+              Our method can be implemented in a few lines, does not induce any significant overhead, and is compatible
+              with most NeRF
+              implementations.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+
+  <section class="section" id="Code">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Code</h2>
+      <h4 class="title">PyTorch</h4>
+      <pre><code>
+##### Define with: #####
+
+class GradientScaler(torch.autograd.Function):
+  @staticmethod
+  def forward(ctx, colors, sigmas, ray_dist):
+    ctx.save_for_backward(ray_dist)
+    return colors, sigmas, ray_dist
+  @staticmethod
+  def backward(ctx, grad_output_colors, grad_output_sigmas, grad_output_ray_dist):
+    (ray_dist,) = ctx.saved_tensors
+    scaling = torch.square(ray_dist).clamp(0, 1)
+    return grad_output_colors * scaling.unsqueeze(-1), grad_output_sigmas * scaling, grad_output_ray_dist
+
+##### Call with: #####
+
+  if gradient_scaling:
+    colors, sigmas, ray_dist = GradientScaler.apply(colors, sigmas, ray_dist)
+        </code></pre>
+      <h4 class="title">JAX (compatible with <a href="https://github.com/google-research/multinerf">MultiNeRF</a>)</h4>
+      <pre><code>
+##### Define with: #####
+
+@custom_jvp
+def gradientScaling(origins,gaussians,rgb,density):
+  return rgb,density
+@gradientScaling.defjvp
+def lgradientScaling_jvp(primals, tangents):
+  origins,gaussians,rgb,density=primals
+  origins_dot,gaussians_dot,rgb_dot,density_dot=tangents
+  ans=gradientScaling(origins,gaussians,rgb,density)
+  scaling=jnp.square(jnp.linalg.norm(gaussians[0]-origins[:,:,:,None],axis=-1,keepdims=True)).clip(0,1)
+  ans_dot=(rgb_dot*scaling,density_dot*scaling[...,0])
+  return ans, ans_dot
+
+##### Call with: #####
+
+  if gradient_scaling:
+    ray_results['rgb'],ray_results['density']=gradientScaling(rays.origins,gaussians,ray_results['rgb'],ray_results['density']) 
+        </code></pre>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+  Coming Soon, see arXiv for now.
+      </code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="./static/paper/GradientScaling_small.pdf">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              We thank the authors of <a href="https://nerfies.github.io/">Nerfies</a> that kindly open sourced the
+              template of this website.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
