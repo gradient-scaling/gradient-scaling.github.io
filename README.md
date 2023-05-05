@@ -3,6 +3,7 @@
 This is the repository that contains source code for the Radiance Field [Gradient Scaling website](https://gradient-scaling.github.io/).
 
 If you find our gradient scaling useful for your work please cite:
+
 ```
 Coming Soon, see arXiv for now.
 ```
