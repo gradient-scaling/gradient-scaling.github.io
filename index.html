@@ -4,10 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-    content="Scaling Radiance Field Gradients allows unbiased near-camera training and floater removal">
+    content="Scaling Radiance Field Gradients allows improved near-camera training and floater removal">
   <meta name="keywords" content="Gradient Scaling, Radiance Field, NeRF">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Radiance Field Gradient Scaling for Unbiased Near-Camera Training</title>
+  <title>Floaters No More: Radiance Field Gradient Scaling for
+Improved Near-Camera Training</title>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QK7N6ZPWB"></script>
@@ -203,19 +204,17 @@ Improved Near-Camera Training
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              NeRF acquisition typically requires careful choice of near planes for the different cameras or suffers
-              from background
-              collapse, creating floating artifacts on the edges of the captured scene. The key insight of this work is
-              that
-              background collapse is caused by a higher density of samples in regions near cameras. As a result of this
-              sampling bias,
-              near-camera volumes receive significantly more gradients, leading to incorrect density buildup. We propose
-              a gradient
-              scaling approach to counter-balance this bias, removing the need for near planes, while preventing
-              background collapse.
-              Our method can be implemented in a few lines, does not induce any significant overhead, and is compatible
-              with most NeRF
-              implementations.
+NeRF acquisition typically requires careful choice of near planes for the different cameras or suffers from
+background collapse, creating floating artifacts on the edges of the captured scene.
+The key insight of this work
+is that background collapse is caused by a higher density of samples in regions near cameras.
+As a result of this
+sampling imbalance, near-camera volumes receive significantly more gradients, leading to incorrect density
+buildup.
+We propose a gradient scaling approach to counter-balance this sampling imbalance, removing the
+need for near planes, while preventing background collapse.
+Our method can be implemented in a few lines,
+does not induce any significant overhead, and is compatible with most NeRF implementations.
             </p>
           </div>
         </div>
@@ -268,6 +267,10 @@ def lgradientScaling_jvp(primals, tangents):
   if gradient_scaling:
     ray_results['rgb'],ray_results['density']=gradientScaling(rays.origins,gaussians,ray_results['rgb'],ray_results['density']) 
         </code></pre>
+
+    <h4 class="title">Nerfstudio</h4>
+      
+    Our method has been implemented by the community in <a href="https://docs.nerf.studio/en/latest/">NerfStudio</a>. If you want to use it look <a href="https://docs.nerf.studio/en/latest/reference/api/model_components/losses.html#nerfstudio.model_components.losses.scale_gradients_by_distance_squared">here!</a>
     </div>
   </section>
 
