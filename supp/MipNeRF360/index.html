@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Results</title>
+<link type="text/css" rel="stylesheet" href="../css/lightslider.css" />
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<script src="../js/jquery.min.js"></script>
+<script src="../js/lightslider.js"></script>
+<script src="../js/scripts.js"></script>
+<!--<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">-->
+<link rel="stylesheet" href="https://use.typekit.net/vrr1idw.css">
+</head>
+<body>
+<div class="demo">    <div class="item">
+<h1 style="text-align:center;">MipNeRF360</h1><h2><a href="../index.html">Back to Main Page</a>
+<a name="SbS"></a>
+<h2 style="font-size: 36px;">Color side by side comparison for bicycle</h2><div class="vidWarpper">
+        <button class="syncButton" onclick="syncVid(this)">Synchronize videos</button>
+        <button class="syncButton" onclick="pauseVid(this)">Pause videos</button>
+        <button class="syncButton" onclick="startVid(this)">Start videos</button>
+        </br>
+<h3>Use the blue dropdown buttons to control the sources for comparison</h3></br>
+<div class='vidLeft'><div class="selLeft" name="Ablation1"><button class="dropbtn">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist) &darr;</button><div class="dropdown-content">
+<button class="dpdButton" name="render" onclick="changeVid(this,'color/bicycle/render','ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)')">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)</button>
+<button class="dpdButton" name="render_near0_w_scaling" onclick="changeVid(this,'color/bicycle/render_near0_w_scaling','OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist')">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist</button>
+<button class="dpdButton" name="render_no_dist_loss" onclick="changeVid(this,'color/bicycle/render_no_dist_loss','Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss" onclick="changeVid(this,'color/bicycle/render_near0_no_dist_loss','Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss_w_scaling" onclick="changeVid(this,'color/bicycle/render_near0_no_dist_loss_w_scaling','Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist</button>
+</div></div></br>
+<video  muted autoplay loop controls width="512"><source src='color/bicycle/render/vid.mp4' type='video/mp4'></video></div><div class='vidRight'><div class="selRight" name="Ablation2"><button class="dropbtn">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist &darr;</button><div class="dropdown-content">
+<button class="dpdButton" name="render" onclick="changeVid(this,'color/bicycle/render','ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)')">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)</button>
+<button class="dpdButton" name="render_near0_w_scaling" onclick="changeVid(this,'color/bicycle/render_near0_w_scaling','OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist')">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist</button>
+<button class="dpdButton" name="render_no_dist_loss" onclick="changeVid(this,'color/bicycle/render_no_dist_loss','Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss" onclick="changeVid(this,'color/bicycle/render_near0_no_dist_loss','Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss_w_scaling" onclick="changeVid(this,'color/bicycle/render_near0_no_dist_loss_w_scaling','Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist</button>
+</div></div></br>
+<video  muted autoplay loop controls width="512"><source src='color/bicycle/render_near0_w_scaling/vid.mp4' type='video/mp4'></video></div><a name="SbS"></a>
+<h2 style="font-size: 36px;">Distance mean side by side comparison for bicycle</h2><div class="vidWarpper">
+        <button class="syncButton" onclick="syncVid(this)">Synchronize videos</button>
+        <button class="syncButton" onclick="pauseVid(this)">Pause videos</button>
+        <button class="syncButton" onclick="startVid(this)">Start videos</button>
+        </br>
+<h3>Use the blue dropdown buttons to control the sources for comparison</h3></br>
+<div class='vidLeft'><div class="selLeft" name="Ablation1"><button class="dropbtn">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist) &darr;</button><div class="dropdown-content">
+<button class="dpdButton" name="render" onclick="changeVid(this,'distance_mean/bicycle/render','ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)')">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)</button>
+<button class="dpdButton" name="render_near0_w_scaling" onclick="changeVid(this,'distance_mean/bicycle/render_near0_w_scaling','OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist')">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist</button>
+<button class="dpdButton" name="render_no_dist_loss" onclick="changeVid(this,'distance_mean/bicycle/render_no_dist_loss','Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss" onclick="changeVid(this,'distance_mean/bicycle/render_near0_no_dist_loss','Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss_w_scaling" onclick="changeVid(this,'distance_mean/bicycle/render_near0_no_dist_loss_w_scaling','Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist</button>
+</div></div></br>
+<video  muted autoplay loop controls width="512"><source src='distance_mean/bicycle/render/vid.mp4' type='video/mp4'></video></div><div class='vidRight'><div class="selRight" name="Ablation2"><button class="dropbtn">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist &darr;</button><div class="dropdown-content">
+<button class="dpdButton" name="render" onclick="changeVid(this,'distance_mean/bicycle/render','ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)')">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)</button>
+<button class="dpdButton" name="render_near0_w_scaling" onclick="changeVid(this,'distance_mean/bicycle/render_near0_w_scaling','OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist')">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist</button>
+<button class="dpdButton" name="render_no_dist_loss" onclick="changeVid(this,'distance_mean/bicycle/render_no_dist_loss','Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss" onclick="changeVid(this,'distance_mean/bicycle/render_near0_no_dist_loss','Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss_w_scaling" onclick="changeVid(this,'distance_mean/bicycle/render_near0_no_dist_loss_w_scaling','Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist</button>
+</div></div></br>
+<video  muted autoplay loop controls width="512"><source src='distance_mean/bicycle/render_near0_w_scaling/vid.mp4' type='video/mp4'></video></div><a name="SbS"></a>
+<h2 style="font-size: 36px;">Color side by side comparison for stump</h2><div class="vidWarpper">
+        <button class="syncButton" onclick="syncVid(this)">Synchronize videos</button>
+        <button class="syncButton" onclick="pauseVid(this)">Pause videos</button>
+        <button class="syncButton" onclick="startVid(this)">Start videos</button>
+        </br>
+<h3>Use the blue dropdown buttons to control the sources for comparison</h3></br>
+<div class='vidLeft'><div class="selLeft" name="Ablation1"><button class="dropbtn">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist) &darr;</button><div class="dropdown-content">
+<button class="dpdButton" name="render" onclick="changeVid(this,'color/stump/render','ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)')">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)</button>
+<button class="dpdButton" name="render_near0_w_scaling" onclick="changeVid(this,'color/stump/render_near0_w_scaling','OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist')">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist</button>
+<button class="dpdButton" name="render_no_dist_loss" onclick="changeVid(this,'color/stump/render_no_dist_loss','Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss" onclick="changeVid(this,'color/stump/render_near0_no_dist_loss','Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss_w_scaling" onclick="changeVid(this,'color/stump/render_near0_no_dist_loss_w_scaling','Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist</button>
+</div></div></br>
+<video  muted autoplay loop controls width="512"><source src='color/stump/render/vid.mp4' type='video/mp4'></video></div><div class='vidRight'><div class="selRight" name="Ablation2"><button class="dropbtn">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist &darr;</button><div class="dropdown-content">
+<button class="dpdButton" name="render" onclick="changeVid(this,'color/stump/render','ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)')">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)</button>
+<button class="dpdButton" name="render_near0_w_scaling" onclick="changeVid(this,'color/stump/render_near0_w_scaling','OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist')">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist</button>
+<button class="dpdButton" name="render_no_dist_loss" onclick="changeVid(this,'color/stump/render_no_dist_loss','Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss" onclick="changeVid(this,'color/stump/render_near0_no_dist_loss','Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss_w_scaling" onclick="changeVid(this,'color/stump/render_near0_no_dist_loss_w_scaling','Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist</button>
+</div></div></br>
+<video  muted autoplay loop controls width="512"><source src='color/stump/render_near0_w_scaling/vid.mp4' type='video/mp4'></video></div><a name="SbS"></a>
+<h2 style="font-size: 36px;">Distance mean side by side comparison for stump</h2><div class="vidWarpper">
+        <button class="syncButton" onclick="syncVid(this)">Synchronize videos</button>
+        <button class="syncButton" onclick="pauseVid(this)">Pause videos</button>
+        <button class="syncButton" onclick="startVid(this)">Start videos</button>
+        </br>
+<h3>Use the blue dropdown buttons to control the sources for comparison</h3></br>
+<div class='vidLeft'><div class="selLeft" name="Ablation1"><button class="dropbtn">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist) &darr;</button><div class="dropdown-content">
+<button class="dpdButton" name="render" onclick="changeVid(this,'distance_mean/stump/render','ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)')">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)</button>
+<button class="dpdButton" name="render_near0_w_scaling" onclick="changeVid(this,'distance_mean/stump/render_near0_w_scaling','OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist')">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist</button>
+<button class="dpdButton" name="render_no_dist_loss" onclick="changeVid(this,'distance_mean/stump/render_no_dist_loss','Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss" onclick="changeVid(this,'distance_mean/stump/render_near0_no_dist_loss','Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss_w_scaling" onclick="changeVid(this,'distance_mean/stump/render_near0_no_dist_loss_w_scaling','Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist</button>
+</div></div></br>
+<video  muted autoplay loop controls width="512"><source src='distance_mean/stump/render/vid.mp4' type='video/mp4'></video></div><div class='vidRight'><div class="selRight" name="Ablation2"><button class="dropbtn">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist &darr;</button><div class="dropdown-content">
+<button class="dpdButton" name="render" onclick="changeVid(this,'distance_mean/stump/render','ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)')">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)</button>
+<button class="dpdButton" name="render_near0_w_scaling" onclick="changeVid(this,'distance_mean/stump/render_near0_w_scaling','OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist')">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist</button>
+<button class="dpdButton" name="render_no_dist_loss" onclick="changeVid(this,'distance_mean/stump/render_no_dist_loss','Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss" onclick="changeVid(this,'distance_mean/stump/render_near0_no_dist_loss','Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss_w_scaling" onclick="changeVid(this,'distance_mean/stump/render_near0_no_dist_loss_w_scaling','Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist</button>
+</div></div></br>
+<video  muted autoplay loop controls width="512"><source src='distance_mean/stump/render_near0_w_scaling/vid.mp4' type='video/mp4'></video></div><a name="SbS"></a>
+<h2 style="font-size: 36px;">Color side by side comparison for garden</h2><div class="vidWarpper">
+        <button class="syncButton" onclick="syncVid(this)">Synchronize videos</button>
+        <button class="syncButton" onclick="pauseVid(this)">Pause videos</button>
+        <button class="syncButton" onclick="startVid(this)">Start videos</button>
+        </br>
+<h3>Use the blue dropdown buttons to control the sources for comparison</h3></br>
+<div class='vidLeft'><div class="selLeft" name="Ablation1"><button class="dropbtn">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist) &darr;</button><div class="dropdown-content">
+<button class="dpdButton" name="render" onclick="changeVid(this,'color/garden/render','ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)')">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)</button>
+<button class="dpdButton" name="render_near0_w_scaling" onclick="changeVid(this,'color/garden/render_near0_w_scaling','OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist')">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist</button>
+<button class="dpdButton" name="render_no_dist_loss" onclick="changeVid(this,'color/garden/render_no_dist_loss','Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss" onclick="changeVid(this,'color/garden/render_near0_no_dist_loss','Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss_w_scaling" onclick="changeVid(this,'color/garden/render_near0_no_dist_loss_w_scaling','Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist</button>
+</div></div></br>
+<video  muted autoplay loop controls width="512"><source src='color/garden/render/vid.mp4' type='video/mp4'></video></div><div class='vidRight'><div class="selRight" name="Ablation2"><button class="dropbtn">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist &darr;</button><div class="dropdown-content">
+<button class="dpdButton" name="render" onclick="changeVid(this,'color/garden/render','ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)')">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)</button>
+<button class="dpdButton" name="render_near0_w_scaling" onclick="changeVid(this,'color/garden/render_near0_w_scaling','OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist')">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist</button>
+<button class="dpdButton" name="render_no_dist_loss" onclick="changeVid(this,'color/garden/render_no_dist_loss','Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss" onclick="changeVid(this,'color/garden/render_near0_no_dist_loss','Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss_w_scaling" onclick="changeVid(this,'color/garden/render_near0_no_dist_loss_w_scaling','Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist</button>
+</div></div></br>
+<video  muted autoplay loop controls width="512"><source src='color/garden/render_near0_w_scaling/vid.mp4' type='video/mp4'></video></div><a name="SbS"></a>
+<h2 style="font-size: 36px;">Distance mean side by side comparison for garden</h2><div class="vidWarpper">
+        <button class="syncButton" onclick="syncVid(this)">Synchronize videos</button>
+        <button class="syncButton" onclick="pauseVid(this)">Pause videos</button>
+        <button class="syncButton" onclick="startVid(this)">Start videos</button>
+        </br>
+<h3>Use the blue dropdown buttons to control the sources for comparison</h3></br>
+<div class='vidLeft'><div class="selLeft" name="Ablation1"><button class="dropbtn">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist) &darr;</button><div class="dropdown-content">
+<button class="dpdButton" name="render" onclick="changeVid(this,'distance_mean/garden/render','ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)')">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)</button>
+<button class="dpdButton" name="render_near0_w_scaling" onclick="changeVid(this,'distance_mean/garden/render_near0_w_scaling','OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist')">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist</button>
+<button class="dpdButton" name="render_no_dist_loss" onclick="changeVid(this,'distance_mean/garden/render_no_dist_loss','Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss" onclick="changeVid(this,'distance_mean/garden/render_near0_no_dist_loss','Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss_w_scaling" onclick="changeVid(this,'distance_mean/garden/render_near0_no_dist_loss_w_scaling','Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist</button>
+</div></div></br>
+<video  muted autoplay loop controls width="512"><source src='distance_mean/garden/render/vid.mp4' type='video/mp4'></video></div><div class='vidRight'><div class="selRight" name="Ablation2"><button class="dropbtn">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist &darr;</button><div class="dropdown-content">
+<button class="dpdButton" name="render" onclick="changeVid(this,'distance_mean/garden/render','ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)')">ORIGINAL MipNeRF360 (Near=0.2, W/O Gradient Scaling, With Ldist)</button>
+<button class="dpdButton" name="render_near0_w_scaling" onclick="changeVid(this,'distance_mean/garden/render_near0_w_scaling','OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist')">OURS - MipNeRF360, Near=0, With Gradient Scaling, With Ldist</button>
+<button class="dpdButton" name="render_no_dist_loss" onclick="changeVid(this,'distance_mean/garden/render_no_dist_loss','Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0.2, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss" onclick="changeVid(this,'distance_mean/garden/render_near0_no_dist_loss','Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, W/O Gradient Scaling, W/O Ldist</button>
+<button class="dpdButton" name="render_near0_no_dist_loss_w_scaling" onclick="changeVid(this,'distance_mean/garden/render_near0_no_dist_loss_w_scaling','Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist')">Ablation - MipNeRF360, Near=0, With Gradient Scaling, W/O Ldist</button>
+</div></div></br>
+<video  muted autoplay loop controls width="512"><source src='distance_mean/garden/render_near0_w_scaling/vid.mp4' type='video/mp4'></video></div></div>
+</body>

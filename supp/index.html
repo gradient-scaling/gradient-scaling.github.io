@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<!--<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">-->
+<link rel="stylesheet" href="https://use.typekit.net/vrr1idw.css">
+</head>
+<body style="width: 80%"> 
+<div class="logos" style="padding-right: 100px">
+  <image src="img/adobe_logo.svg" style="width:200px;">
+</div>
+<h2 class="index-title">Supplemental Materials - Floaters No More: <br/> Radiance Field Gradient Scaling for Improved Near-Camera Training</h2>
+<table style="padding: 30px 0px 30px 0px" class="authors">
+<tr>
+<td><a href="https://julienphilip.com">Julien Philip</a></td>
+<td><a href="https://valentin.deschaintre.fr">Valentin Deschaintre</a></td>
+</tr>
+<tr>
+<td>Adobe Research</td>
+<td>Adobe Research</td>
+</tr>
+</table>
+
+
+<hr style="margin: 30px auto; width: 400px">
+<p style="text-align:justify">For each of the method we provide video or image comparisons with and without gradient scaling<br/></p>
+<a href="Instant NGP/index.html"><div class="mainLink">Instant NGP</div></a>
+<a href="TensoRF/index.html"><div class="mainLink">TensoRF</div></a>
+<a href="MipNeRF360/index.html"><div class="mainLink">MipNeRF360</div></a>
+<a href="Direct Voxel Grid Optimization/index.html"><div class="mainLink">Direct Voxel Grid Optimization</div></a>
+<h1 style="text-align:left;">
+JAX Implementation
+</h1>
+
+<pre data-lang='Python' class='prettyprint'>
+<text class=keywords>@custom_jvp</text>
+<text class=keywords2>def </text>gradientScaling(origins, gaussians, rgb, density):
+    <text class=keywords2>return</text> rgb, density
+
+<text class=keywords>@gradientScaling.defjvp</text>
+<text class=keywords2>def</text> lgradientScaling_jvp(primals, tangents):
+    origins, gaussians, rgb,density = primals
+    origins_dot, gaussians_dot, rgb_dot, density_dot = tangents
+    ans = gradientScaling(origins, gaussians, rgb,density)
+    scaling = jnp.square(jnp.linalg.norm(gaussians[0]-origins[:, :, :, None], axis=-1, keepdims=True)).clip(0, 1)
+    ans_dot = (rgb_dot * scaling, density_dot * scaling[..., 0])
+    <text class=keywords2>return</text> ans, ans_dot
+</pre>
+</div></body>
