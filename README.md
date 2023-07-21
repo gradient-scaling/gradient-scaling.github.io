@@ -1,11 +1,21 @@
-# Radiance Field Gradient Scaling for Unbiased Near-Camera Training
+# Floaters No More: Radiance Field Gradient Scaling for Improved Near-Camera Training
 
-This is the repository that contains source code for the Radiance Field [Gradient Scaling website](https://gradient-scaling.github.io/).
+This is the repository that contains the source code for the Radiance Field [Gradient Scaling website](https://gradient-scaling.github.io/).
 
 If you find our gradient scaling useful for your work please cite:
 
 ```
-Coming Soon, see arXiv for now.
+        @inproceedings {10.2312:sr.20231122,
+        booktitle = {Eurographics Symposium on Rendering},
+        editor = {Ritschel, Tobias and Weidlich, Andrea},
+        title = {{Floaters No More: Radiance Field Gradient Scaling for Improved Near-Camera Training}},
+        author = {Philip, Julien and Deschaintre, Valentin},
+        year = {2023},
+        publisher = {The Eurographics Association},
+        ISSN = {1727-3463},
+        ISBN = {978-3-03868-229-5},
+        DOI = {10.2312/sr.20231122}
+        }
 ```
 
 We thank the authors of [Nerfies](https://nerfies.github.io/) for sharing their website source.
